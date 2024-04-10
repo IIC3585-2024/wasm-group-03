@@ -27,12 +27,4 @@ void primeFactors(int n)
 		printf("%d ", n);
 }
 
-/* Driver program to test above function */
-int main()
-{
-	int n = 315;
-	primeFactors(n);
-	return 0;
-}
-
 // This code is improved by Susobhan Akhuli
