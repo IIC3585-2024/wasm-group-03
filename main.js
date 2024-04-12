@@ -1,8 +1,23 @@
-const Module = require("./func/primeFactors");
+Module.onRuntimeInitialized = function() {
+  function primeFactors(n) {
+      return Module.ccall('primeFactors', 'number', ['number'], [n]);
+  }
 
-function getPrimeFactors(n) {
-  result = Module._primeFactors(n);
-  return result;
-}
+  function calculate() {
+      let input = document.getElementById("input").valueAsNumber;
+      let arrayPointer = primeFactors(input);
+      let result = [];
+      let i = 0;
+      while (Module.HEAP32[arrayPointer >> 2] != 0) {
+          result.push(Module.HEAP32[arrayPointer >> 2]);
+          arrayPointer += 4;
+          i++;
+      }
+      Module._free(arrayPointer);
+      console.log(result);
+      document.getElementById("result").innerText = "El resultado es: " + result;
+  }
 
-console.log(getPrimeFactors(10));
+  // Exporta la función calculate para que sea accesible desde el HTML
+  window.calculate = calculate;
+};
