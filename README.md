@@ -25,10 +25,8 @@ source ./emsdk_env.sh
 
 ## Para compilar:
 ```
-emcc lib/primeFactors.c -s WASM=1 -s EXPORTED_FUNCTIONS=_primeFactors,_malloc,_free -o func/primeFactors.js
+emcc lib/primeFactors.c -O2 -s EXPORTED_FUNCTIONS=_primeFactors,_free -s EXPORTED_RUNTIME_METHODS=ccall -o func/primeFactors.js
 ```
 
-## Para correr servidor:
-```
-# Agregar codigo aqui
-```
+## Para correrlo:
+Correr el html con Live Server
