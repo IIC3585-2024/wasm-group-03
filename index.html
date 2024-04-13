@@ -7,20 +7,29 @@
     <title>Prime Factorization</title>
 </head>
 <body>
-    <input type="number" id="input">
-    <button id="calculateButton">Calcular</button>
+    <div class="header">
+        <h1>Factorización de números primos</h1>
+        <input type="number" id="input">
+        <button id="calculateButton">Calcular</button>
+    </div>
 
-    <h1>WebAssembly (C O2 Optimization)</h1>
-    <p id="resultCO2">El resultado es:</p>
-    <p id="timeCO2">El tiempo de ejecución es:</p>
+    <div class="content">
+        <h1>WebAssembly (C O2 Optimization)</h1>
+        <p id="resultCO2">El resultado es:</p>
+        <p id="timeCO2" class="time">El tiempo de ejecución es:</p>
+    </div>
 
-    <h1>WebAssembly (C O3 Optimization)</h1>
-    <p id="resultCO3">El resultado es:</p>
-    <p id="timeCO3">El tiempo de ejecución es:</p>
+    <div class="content">
+        <h1>WebAssembly (C O3 Optimization)</h1>
+        <p id="resultCO3">El resultado es:</p>
+        <p id="timeCO3" class="time">El tiempo de ejecución es:</p>
+    </div>
 
-    <h1>JavaScript</h1>
-    <p id="resultJs">El resultado es:</p>
-    <p id="timeJs">El tiempo de ejecución es:</p>
+    <div class="content">
+        <h1>JavaScript</h1>
+        <p id="resultJs">El resultado es:</p>
+        <p id="timeJs" class="time">El tiempo de ejecución es:</p>
+    </div>
     
     <script type="module" src="src/main.js"></script>
 </body>
