@@ -7,29 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     calculateButton.addEventListener('click', async () => {
         const input = document.getElementById("input").valueAsNumber;
-        const method = methodSelector.value;
-        let result;
-
-        switch (method) {
-            case 'CO2':
-                result = await O2WasmPrimeFactors(input);
-                break;
-            case 'CO3':
-                result = await O3WasmPrimeFactors(input);
-                break;
-            case 'js':
-                result = await jsPrimeFactors(input);
-                break;
-            default:
-                console.error('Metodo invalido.');
-                return;
-        }
-
-        displayResults(result);
+        let resultCO2 = await O2WasmPrimeFactors(input);
+        let resultCO3 = await O3WasmPrimeFactors(input);
+        let resultJs = await jsPrimeFactors(input);
+        displayResults("resultCO2", resultCO2);
+        displayResults("resultCO3", resultCO3);
+        displayResults("resultJs", resultJs);
     });
 });
 
 
-function displayResults(factors) {
-  document.getElementById("result").innerText = "El resultado es: " + factors.join(", ");
+function displayResults(resutlId, factors) {
+  document.getElementById(resutlId).innerText = "El resultado es: " + factors.join(", ");
 }
