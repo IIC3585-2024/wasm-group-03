@@ -25,8 +25,11 @@ source ./emsdk_env.sh
 
 ## Para compilar:
 ```
-emcc lib/primeFactors.c -O2 -s EXPORTED_FUNCTIONS=_primeFactors,_free -s EXPORTED_RUNTIME_METHODS=ccall -o func/primeFactors.js
+emcc src/primeFactors.c -O2 -s EXPORTED_FUNCTIONS=_primeFactors,_free -s EXPORTED_RUNTIME_METHODS=cwrap -s EXPORT_ES6=1 -o wasm/primeFactors.js
 ```
 
 ## Para correrlo:
-Correr el html con Live Server
+Correr el html con Live Server. En caso de no querer aproximarse con esto tambien se puede correr
+```
+python3 -m http.server
+```

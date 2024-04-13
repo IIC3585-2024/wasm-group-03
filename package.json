@@ -1,0 +1,10 @@
+{
+  "name": "wasm-group-03",
+  "version": "1.0.0",
+  "description": "WebAssembly ES6 module integration",
+  "type": "module",
+  "scripts": {
+  },
+  "author": "grupo-03",
+  "license": "ISC"
+}

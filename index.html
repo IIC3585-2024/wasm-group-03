@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Factors</title>
-    <script src="func/primeFactors.js"></script>
-    <script src="main.js"></script>
+    <title>Prime Factorization</title>
 </head>
 <body>
     <input type="number" id="input">
-    <button onclick="calculate()">Calcular</button>
+    <select id="methodSelector">
+      <option value="CO2">WebAssembly (C O2 Optimization)</option>
+      <option value="CO3">WebAssembly (C O3 Optimization)</option>
+      <option value="js">JavaScript</option>
+    </select>
+    <button id="calculateButton">Calcular</button>
     <p id="result"></p>
+    <script type="module" src="src/main.js"></script>
 </body>
 </html>
