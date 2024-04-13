@@ -1,4 +1,5 @@
-import { wasmPrimeFactors, jsPrimeFactors } from './primeFactors.js';
+import {  O2WasmPrimeFactors, O3WasmPrimeFactors } from './wasmPrimeFactors.js';
+import jsPrimeFactors from './jsPrimeFactors.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const calculateButton = document.getElementById('calculateButton');
@@ -10,11 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let result;
 
         switch (method) {
-            case 'wasm':
-                result = await wasmPrimeFactors(input);
+            case 'CO2':
+                result = await O2WasmPrimeFactors(input);
+                break;
+            case 'CO3':
+                result = await O3WasmPrimeFactors(input);
                 break;
             case 'js':
-                result = jsPrimeFactors(input);
+                result = await jsPrimeFactors(input);
                 break;
             default:
                 console.error('Metodo invalido.');
