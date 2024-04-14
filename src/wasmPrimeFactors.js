@@ -1,5 +1,7 @@
 import O2Module from '../wasm/O2primeFactors.js';
 import O3Module from '../wasm/O3primeFactors.js';
+import CPPModule from '../wasm/CPPprimeFactors.js';
+// import GoModule from '../wasm/GOprimeFactors.js';
 
 let wasmModule;
 
@@ -17,6 +19,14 @@ async function loadO2WasmModule() {
 async function loadO3WasmModule() {
   return loadWasmModule(O3Module);
 }
+
+async function loadCPPWasmModule() {
+  return loadWasmModule(CPPModule);
+}
+
+// async function loadGoWasmModule() {
+//   return loadWasmModule(GoModule);
+// }
 
 async function wasmPrimeFactors(n, loadWasmModuleFunction) {
   const instance = await loadWasmModuleFunction();
@@ -43,3 +53,11 @@ export async function O2WasmPrimeFactors(n) {
 export async function O3WasmPrimeFactors(n) {
   return wasmPrimeFactors(n, loadO3WasmModule);
 }
+
+export async function CPPWasmPrimeFactors(n) {
+  return wasmPrimeFactors(n, loadCPPWasmModule);
+}
+
+// export async function GoWasmPrimeFactors(n) {
+//   return wasmPrimeFactors(n, loadGoWasmModule);
+// }

@@ -1,4 +1,4 @@
-export default async function jsPrimeFactors(n) {
+export default async function primeFactors(n) {
     let factors = []
     let i = 0;
 

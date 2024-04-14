@@ -1,10 +1,6 @@
-package main
+package primeFactors
 
-import (
-	"math"
-)
-
-func PrimeFactors(n int64) []int64 {
+func primeFactors(n int64) []int64 {
 	var factors []int64
 	var i int64
 
@@ -31,3 +27,4 @@ func PrimeFactors(n int64) []int64 {
 
 	return factors
 }
+

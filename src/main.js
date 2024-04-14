@@ -1,5 +1,8 @@
-import {  O2WasmPrimeFactors, O3WasmPrimeFactors } from './wasmPrimeFactors.js';
-import jsPrimeFactors from './jsPrimeFactors.js';
+import {  
+  O2WasmPrimeFactors, 
+  O3WasmPrimeFactors, 
+  CPPWasmPrimeFactors } from './wasmPrimeFactors.js';
+import primeFactors from './primeFactors.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const calculateButton = document.getElementById('calculateButton');
@@ -16,16 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const CO3Time = performance.now() - start;
 
         start = performance.now();
-        let resultJs = await jsPrimeFactors(input);
+        let resultJs = await primeFactors(input);
         const JsTime = performance.now() - start;
+
+        start = performance.now();
+        let resultCPP = await CPPWasmPrimeFactors(input);
+        const CPPTime = performance.now() - start;
 
         displayResults("resultCO2", resultCO2);
         displayResults("resultCO3", resultCO3);
         displayResults("resultJs", resultJs);
+        displayResults("resultCPP", resultCPP);
 
         displayTime("timeCO2", CO2Time);
         displayTime("timeCO3", CO3Time);
         displayTime("timeJs", JsTime);
+        displayTime("timeCPP", CPPTime);
     });
 });
 

@@ -1,0 +1,1 @@
+emcc primeFactors.cpp -O2 -s EXPORTED_FUNCTIONS='_primeFactors,_free' -s EXPORTED_RUNTIME_METHODS='cwrap' -s EXPORT_ES6=1 -o CPPprimeFactors.js
